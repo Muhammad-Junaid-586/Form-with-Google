@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form Submit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="content">
+    <center>
+      <form method="post" action="" name="product" id="product">
+        <h1>Submit Product</h1>
+        <p style="font-size: 10px;">Mohammad Junaid</p>
+
+        <label for="naem">Name*</label>
+        <input class="fil" type="text" name="name" placeholder="Enter Product Name" required>
+
+        <label for="naem">Rate*</label>
+        <input class="fil" type="text" name="price" placeholder="Enter Free Or Paid" required>
+
+        <label for="naem">Product Link*</label>
+        <input class="fil" type="text" name="Product Link" placeholder="Product Downloading Link" required>
+
+        <label for="naem">Product code</label>
+        <input class="fil" type="text" name="Product code" placeholder="Product code">
+
+        <label for="naem">Email*</label>
+        <input class="fil" type="text" name="email" placeholder="Enter Upi or Paypal" required>
+
+        <label for="">Product Description*</label>
+        <textarea name="description" id="" cols="30" rows="10" placeholder="About Product" required></textarea>
+
+        <button class="click">Submit &#10132;</button>
+
+        <p style="  font-size: 10px; color: rgb(33, 33, 33); margin: 6px;">Mohammad Rameez Imdad</p>
+
+      </form>
+    </center>
+
+  </div>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwUZ-0tNqyj9AHcmedQKrJT8YbrKzrjwLwB0966UP9dpDcohJcNrsExUYeeucAJR1RL/exec'
+    const form = document.forms['product']
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => alert("Thank you! your form is submitted successfully."))
+        .then(() => { window.location.reload(); })
+        .catch(error => console.error('Error!', error.message))
+    })
+
+  </script>
+  <br>
+</body>
+
+</html>
